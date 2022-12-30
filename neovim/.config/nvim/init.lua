@@ -1,8 +1,7 @@
 require('plugins')
 require('settings')
+require("remap")
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
@@ -19,3 +18,10 @@ require("nvim-tree").setup({
     group_empty = true,
   }
 })
+
+require('lualine').setup {
+	options = {
+		icons_enabled = true,
+		theme = 'dracula'
+	}
+}
