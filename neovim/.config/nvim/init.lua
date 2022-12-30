@@ -1,6 +1,7 @@
 require('plugins')
 require('settings')
 require("remap")
+require("colors")
 
 vim.opt.termguicolors = true
 
