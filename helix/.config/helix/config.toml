@@ -11,3 +11,12 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+"ret" = ["move_line_down", "goto_first_nonwhitespace"]
+
+[keys.insert]
+j = { k = "normal_mode" }
