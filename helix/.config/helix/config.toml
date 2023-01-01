@@ -17,6 +17,18 @@ display-messages = true
 
 [keys.normal]
 "ret" = ["move_line_down", "goto_first_nonwhitespace"]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
 
 [keys.insert]
 j = { k = "normal_mode" }
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
