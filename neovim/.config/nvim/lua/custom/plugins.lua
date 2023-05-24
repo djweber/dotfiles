@@ -46,23 +46,32 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-
   {
-    "vim-test/vim-test",
-    config = function()
-      vim.g['test#strategy'] = 'neovim'
-      vim.g['test#neovim#start_normal'] = '1'
-      vim.g['test#neovim#term_position'] = 'vert'
-      vim.g['test#go#gotest#options'] = '-v'
-    end,
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-neotest/neotest-go"
+    },
     keys = {
-      { '<leader>tf', '<Cmd>TestFile<CR>', desc = 'Run all tests in file'},
-      { '<leader>tn', '<Cmd>TestNearest<CR>', desc = 'Run nearest test function'},
-      { '<leader>ts', '<Cmd>TestSuite<CR>', desc= 'Run test suite' },
-      { '<leader>tl', '<Cmd>TestLast<CR>', desc= 'Run last test' },
-      { '<leader>tv', '<Cmd>TestVisit<CR>', desc = 'Visit file containing most recently ran test' }
-    }
+      { "<leader>tn", "<cmd>lua require('neotest').run.run()<CR>", desc="run the nearest test" },
+      { "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc="run all tests in the file" },
+      { "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>", desc="toggle the test summary" },
+      { "<leader>to", "<cmd>lua require('neotest').output.open({ enter = true })<CR>", desc="open the test output" }
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-go")({
+            experimental = {
+              test_table = true
+            },
+            args = { "-v" }
+          })
+        }
+      })
+    end
   }
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
