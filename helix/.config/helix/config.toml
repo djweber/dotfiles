@@ -1,34 +1,16 @@
-theme = "dracula"
+theme = "onedark"
 
 [editor]
 line-number = "relative"
-mouse = true
-
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
-
-[editor.file-picker]
-hidden = false
+true-color = true
 
 [editor.lsp]
+
 display-messages = true
+display-inlay-hints = true
 
-[keys.normal]
-"ret" = ["move_line_down", "goto_first_nonwhitespace"]
-g = { a = "code_action" }
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
-
-[keys.insert]
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
-pageup = "no_op"
-pagedown = "no_op"
-home = "no_op"
-end = "no_op"
+[editor.statusline]
+left = ["mode", "file-name", "spinner"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
