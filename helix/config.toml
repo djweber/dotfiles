@@ -1,0 +1,16 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+true-color = true
+
+[editor.lsp]
+
+display-messages = true
+display-inlay-hints = true
+
+[editor.statusline]
+left = ["mode", "file-name", "spinner"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
